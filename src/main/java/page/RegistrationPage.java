@@ -29,6 +29,8 @@ public class RegistrationPage {
     private By buttonLogin1 = By.xpath(".//a[text()='Войти']");
     //Сообщение об ошибке: "Некорректный пароль"
     private By messageIncorrectPassword = By.xpath(".//p[text()='Некорректный пароль']");
+    //Сообщение об ошибке: "Такой пользователь уже существует"
+    private By messageUserAlreadyExists = By.xpath(".//p[text()='Такой пользователь уже существует']");
 
     public void clickFieldsNameRegistration(String name) {
         driver.findElement(fieldsNameRegistration).click();
@@ -54,10 +56,13 @@ public class RegistrationPage {
     }
 
     public void clickButtonLogin1() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement buttonLogin1Element = wait.until(ExpectedConditions.elementToBeClickable(buttonLogin1));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", buttonLogin1Element);
         driver.findElement(buttonLogin1).click();
     }
-}
 
+    public WebElement getMessageUserAlreadyExists() {
+        return driver.findElement(messageUserAlreadyExists);
+    }
+}

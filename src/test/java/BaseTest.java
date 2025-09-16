@@ -16,9 +16,9 @@ import static steps.UserSteps.loginUser;
 public class BaseTest {
 
     WebDriver driver;
-    OrderPage orderPage;
     LoginPage loginPage;
     RegistrationPage registrationPage;
+    OrderPage orderPage;
     Constants constants;
 
     @Before

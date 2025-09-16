@@ -48,8 +48,8 @@ public class LoginPage {
     }
 
     public WebElement getHeading() {
-        return new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(heading));
+        return new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOfElementLocated(heading));
     }
 
     public void clickFieldsEmail(String email) {

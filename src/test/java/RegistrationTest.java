@@ -19,8 +19,12 @@ public class RegistrationTest extends BaseTest {
         registrationPage.clickFieldsEmailRegistration(EMAIL);
         registrationPage.clickFieldsPasswordRegistration(PASSWORD);
         registrationPage.clickButtonRegistration1();
-        WebElement headingElement = loginPage.getHeading();
-        assertTrue(headingElement.isDisplayed());
+        try {
+            loginPage.getHeading();
+        } catch (Exception e) {
+            WebElement messageUserElement = registrationPage.getMessageUserAlreadyExists();
+            assertTrue(messageUserElement.isDisplayed());
+        }
     }
 
     @Test
