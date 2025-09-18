@@ -18,7 +18,7 @@ public class RegistrationTest extends BaseTest {
         registrationPage.clickFieldsNameRegistration(NAME);
         registrationPage.clickFieldsEmailRegistration(EMAIL);
         registrationPage.clickFieldsPasswordRegistration(PASSWORD);
-        registrationPage.clickButtonRegistration1();
+        registrationPage.clickButtonRegistrationInForm();
         try {
             loginPage.getHeading();
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class RegistrationTest extends BaseTest {
         registrationPage.clickFieldsNameRegistration(NAME);
         registrationPage.clickFieldsEmailRegistration(EMAIL);
         registrationPage.clickFieldsPasswordRegistration("12345");
-        registrationPage.clickButtonRegistration1();
+        registrationPage.clickButtonRegistrationInForm();
         WebElement messageElement = registrationPage.getMessageIncorrectPassword();
         assertTrue(messageElement.isDisplayed());
     }

@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,34 +30,41 @@ public class LoginPage {
     //Поле Пароль
     private By fieldsPassword = By.xpath(".//input[@type='password']");
     //Кнопка "Войти" формы восстановления пароля
-    private By buttonLogin2 = By.xpath(".//a[text()='Войти']");
+    private By buttonLoginRecoveryForm = By.xpath(".//a[text()='Войти']");
 
+    @Step("Клик по кнопке Зарегистрироваться")
     public void clickButtonRegistration() {
         driver.findElement(buttonRegistration).click();
     }
 
+    @Step("Клик по кнопке Войти")
     public void clickButtonLogin() {
         driver.findElement(buttonLogin).click();
     }
 
-    public void clickButtonLogin2() {
-        driver.findElement(buttonLogin2).click();
+    @Step("Клик по кнопке Войти в форме восстановления пароля")
+    public void clickButtonLoginRecoveryForm() {
+        driver.findElement(buttonLoginRecoveryForm).click();
     }
 
+    @Step("Клик по кнопке Восстановить пароль")
     public void clickButtonRecoveredPassword() {
         driver.findElement(buttonRecoveredPassword).click();
     }
 
+    @Step("Ожидание появления заголовка Вход")
     public WebElement getHeading() {
-        return new WebDriverWait(driver, Duration.ofSeconds(5))
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOfElementLocated(heading));
     }
 
+    @Step("Введение значения в поле Email")
     public void clickFieldsEmail(String email) {
         driver.findElement(fieldsEmail).click();
         driver.findElement(fieldsEmail).sendKeys(email);
     }
 
+    @Step("Введение значения в поле Пароль")
     public void clickFieldsPassword(String password) {
         driver.findElement(fieldsPassword).click();
         driver.findElement(fieldsPassword).sendKeys(password);

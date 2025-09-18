@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,47 +38,57 @@ public class OrderPage {
     //Кнопка "Оформить заказ"
     private By buttonOrder = By.xpath(".//button[text()='Оформить заказ']");
 
+    @Step("Открытие страницы Stellar Burgers")
     public void openOrderPage() {
         driver.get(BASE_URI);
     }
 
+    @Step("Клик по кнопке Войти в аккаунт")
     public void clickButtonAccount() {
         driver.findElement(buttonAccount).click();
     }
 
+    @Step("Клик по кнопке Личный Кабинет")
     public void clickButtonPersonal() {
         driver.findElement(buttonPersonal).click();
     }
 
+    @Step("Ожидание появления кнопки Оформить заказ")
     public WebElement getButtonOrder() {
-        return new WebDriverWait(driver, Duration.ofSeconds(5))
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(buttonOrder));
     }
 
+    @Step("Клик по владке Начинки")
     public void clickTabFilling() {
         driver.findElement(tabFillingInactive).click();
     }
 
+    @Step("Ожидание активации владки Начинки")
     public WebElement getTabFilling() {
-        return new WebDriverWait(driver, Duration.ofSeconds(5))
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(tabFillingActive));
     }
 
+    @Step("Клик по вкладке Соусы")
     public void clickTabSauce() {
         driver.findElement(tabSauceInactive).click();
     }
 
+    @Step("Одидание активации вкладки Соусы")
     public WebElement getTabSauce() {
-        return new WebDriverWait(driver, Duration.ofSeconds(5))
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(tabSauceActive));
     }
 
+    @Step("Клик по вкладке Булки")
     public void clickTabBun() {
         driver.findElement(tabBunInactive).click();
     }
 
+    @Step("Ожидание активации вкладки Булки")
     public WebElement getTabBun() {
-        return new WebDriverWait(driver, Duration.ofSeconds(5))
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(tabBunActive));
     }
 }

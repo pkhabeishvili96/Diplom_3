@@ -52,7 +52,7 @@ public class LoginTest extends BaseTest {
         orderPage.openOrderPage();
         orderPage.clickButtonPersonal();
         loginPage.clickButtonRegistration();
-        registrationPage.clickButtonLogin1();
+        registrationPage.clickButtonLoginInForm();
         loginPage.clickFieldsEmail(EMAIL);
         loginPage.clickFieldsPassword(PASSWORD);
         loginPage.clickButtonLogin();
@@ -67,7 +67,7 @@ public class LoginTest extends BaseTest {
         orderPage.openOrderPage();
         orderPage.clickButtonPersonal();
         loginPage.clickButtonRecoveredPassword();
-        loginPage.clickButtonLogin2();
+        loginPage.clickButtonLoginRecoveryForm();
         loginPage.clickFieldsEmail(EMAIL);
         loginPage.clickFieldsPassword(PASSWORD);
         loginPage.clickButtonLogin();

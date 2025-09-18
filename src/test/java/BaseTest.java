@@ -24,7 +24,7 @@ public class BaseTest {
     @Before
     public void startUp() {
         WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver", "C:/Users/sslla/Downloads/yandexdriver-25.8.0.1872-win64/yandexdriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:/Users/sslla/Downloads/yandexdriver-25.8.0.1872-win64/yandexdriver.exe");
         driver = new ChromeDriver();
         orderPage = new OrderPage(driver);
         loginPage = new LoginPage(driver);
@@ -34,7 +34,6 @@ public class BaseTest {
 
     @After
     public void tearDown() {
-        driver.quit();
         RestAssured.baseURI = BASE_URI;
         LoginUserModel loginUser = new LoginUserModel(EMAIL, PASSWORD);
         Response response = loginUser(loginUser);
