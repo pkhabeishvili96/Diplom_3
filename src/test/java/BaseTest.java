@@ -34,6 +34,7 @@ public class BaseTest {
 
     @After
     public void tearDown() {
+        driver.quit();
         RestAssured.baseURI = BASE_URI;
         LoginUserModel loginUser = new LoginUserModel(EMAIL, PASSWORD);
         Response response = loginUser(loginUser);
